@@ -1,14 +1,16 @@
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
 
 function App() {
-
   return (
     <>
-    <div>
-
-    </div>
-     </>
-  )
+      <div>
+        <Routes>
+          <Route element="" path=""></Route>
+        </Routes>
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;

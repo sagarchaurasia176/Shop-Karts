@@ -11,7 +11,6 @@ function App() {
         <ProductMainPage/>
         <Routes>
           <Route path="/" element ={<ProductMainPage/>}>
-
           </Route>
         </Routes>
       </div>

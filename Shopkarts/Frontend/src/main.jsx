@@ -6,13 +6,11 @@ import { Toaster } from "react-hot-toast";
 // redux toolki apply here
 import { Provider } from "react-redux";
 // react router
-import ReduxStore from "./Redux/store/ReduxStore.jsx";
-
-
+import { MainStore } from "./Constant/Store/MainStore.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={ReduxStore}>
+      <Provider store={MainStore}>
         <App />
       </Provider>
       <Toaster />

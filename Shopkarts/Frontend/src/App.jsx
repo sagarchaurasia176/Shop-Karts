@@ -1,16 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Components/Navbar";
 import ProductMainPage from "./page/ProductMainPage";
+import Navbar from "./Screens/Navbar";
 
 function App() {
   return (
     <>
       <div>
-        <Navbar />
-        <ProductMainPage />
+        <Navbar/>
         <Routes>
-          <Route path="/" element={<ProductMainPage />}></Route>
+          {/* routes change */}
+          <Route path="/" element={<ProductMainPage />}>
+            
+          </Route>
         </Routes>
       </div>
     </>

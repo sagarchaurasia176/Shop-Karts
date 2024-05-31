@@ -7,11 +7,10 @@ function App() {
   return (
     <>
       <div>
-        <Navbar/>
-        <ProductMainPage/>
+        <Navbar />
+        <ProductMainPage />
         <Routes>
-          <Route path="/" element ={<ProductMainPage/>}>
-          </Route>
+          <Route path="/" element={<ProductMainPage />}></Route>
         </Routes>
       </div>
     </>

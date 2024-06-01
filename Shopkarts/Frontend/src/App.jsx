@@ -2,10 +2,13 @@ import "./App.css";
 import CategoryNav from "./Screens/CategoryNav";
 import Navbar from "./Screens/Navbar";
 import MainProductPage from "./page/MainProductPage";
-import LocomotiveScroll from 'locomotive-scroll';
-
+import LocomotiveScroll from "locomotive-scroll";
 const locomotiveScroll = new LocomotiveScroll();
+import { Route, Routes } from "react-router-dom";
+import CartCatalog from "./page/CartCatalog";
 
+
+// main function apply here
 function App() {
   return (
     <>
@@ -15,7 +18,10 @@ function App() {
             <Navbar />
             <CategoryNav />
           </div>
-          <MainProductPage/>
+          <Routes>
+            <Route path="/HomePage" element={<MainProductPage />}></Route>
+            <Route path="/cartPage" element={<CartCatalog />}></Route>
+          </Routes>
         </div>
       </div>
     </>

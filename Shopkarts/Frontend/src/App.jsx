@@ -22,6 +22,7 @@ function App() {
             <Route path="/" element={<MainProductPage />}></Route>
             <Route path="/cartPage" element={<CartCatalog />}></Route>
           </Routes>
+
         </div>
       </div>
     </>

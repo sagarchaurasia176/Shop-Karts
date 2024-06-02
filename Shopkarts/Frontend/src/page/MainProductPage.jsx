@@ -25,8 +25,8 @@ const MainProductPage = () => {
   return (
     <div>
       {/* main product page apply here */}
-      <div className=" sm:h-auto ">
-        <div className=" lg:grid p-2  gap-1 flex flex-col  ml-6 lg:grid-cols-3">
+      <div className=" w-full p-1 m-auto rounded-md md:w-2/3 ">
+        <div className=" lg:grid p-2  gap-1  lg:grid-cols-3">
           {loading ? (
             <Spinner />
           ) : // nested terniary apply here

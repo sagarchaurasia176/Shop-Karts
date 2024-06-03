@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ProductApi } from "@/Constant/Slice/AddCartSlice";
 import Spinner from "./Spinner";
 import StatusCode from "@/lib/StatusCode";
+
 // main Product page apply here
 const MainProductPage = () => {
   const dispatch = useDispatch();

@@ -9,11 +9,11 @@ import { Provider } from "react-redux";
 import { MainStore } from "./Constant/Store/MainStore.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
       <Provider store={MainStore}>
+    <BrowserRouter>
         <App />
-      </Provider>
       <Toaster />
     </BrowserRouter>
+      </Provider>
   </React.StrictMode>
 );

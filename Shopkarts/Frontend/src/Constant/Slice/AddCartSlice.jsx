@@ -1,8 +1,10 @@
 import { toast } from "react-hot-toast";
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { StatusCode } from "@/lib/StatusCode";
+import StatusCode from "@/lib/StatusCode";
+
 const initialState = {
+
   post: [],
   Status: StatusCode.IDEAL
 };

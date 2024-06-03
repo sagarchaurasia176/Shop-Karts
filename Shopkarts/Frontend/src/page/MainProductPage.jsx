@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ProductApi } from "@/Constant/Slice/AddCartSlice";
 import Spinner from "./Spinner";
 import StatusCode from "@/lib/StatusCode";
+import CategoryNav from "@/Screens/CategoryNav";
 
 // main Product page apply here
 const MainProductPage = () => {
@@ -13,7 +14,7 @@ const MainProductPage = () => {
   useEffect(() => {
     dispatch(ProductApi());
   }, []);
-
+  
   // check the status code
   if (Status === StatusCode.LOADING) return <Spinner />;
   // error
@@ -22,6 +23,7 @@ const MainProductPage = () => {
   // Main page
   return (
     <div>
+      <CategoryNav/>
       {/* main product page apply here */}
       <div className=" w-full p-1 m-auto rounded-md md:w-2/3 ">
         <div className=" lg:grid p-2  gap-1  lg:grid-cols-3">

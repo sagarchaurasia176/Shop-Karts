@@ -8,7 +8,7 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-slate-900 shadow-md p-5">
         {/* navbar-start page apply here */}
-        <div className=" flex  justify-around   navbar">
+        <div className=" flex justify-between    navbar">
           <NavLink to="/">
             <img className=" w-20" src={logo} alt="" />
           </NavLink>

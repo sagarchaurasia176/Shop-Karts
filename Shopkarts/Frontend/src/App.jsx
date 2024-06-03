@@ -1,5 +1,4 @@
 import "./App.css";
-import CategoryNav from "./Screens/CategoryNav";
 import Navbar from "./Screens/Navbar";
 import MainProductPage from "./page/MainProductPage";
 import LocomotiveScroll from "locomotive-scroll";
@@ -16,7 +15,6 @@ function App() {
         <div className="h-screen">
           <div className="">
             <Navbar />
-            <CategoryNav />
           </div>
           <Routes>
             <Route path="/" element={<MainProductPage />}></Route>

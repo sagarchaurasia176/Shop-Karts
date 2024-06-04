@@ -5,6 +5,6 @@ import ProductSlice from '../Slice/ProductSlice'
 export const MainStore = configureStore({
   reducer: {
     AddCart: ProductSlice,
-    Cart: UserCartSlice
+    Carts: UserCartSlice
   },
 })

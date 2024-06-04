@@ -11,9 +11,7 @@ const initialState = {
 export const ProductSlice = createSlice({
   name: "AddCart",
   initialState,
-  reducers: {
-    add: () => { },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(ProductApi.pending, (state, action) => {
       state.Status = StatusCode.LOADING;
@@ -30,7 +28,7 @@ export const ProductSlice = createSlice({
       });
   },
 }); // exports the funcitons here
-export const { add } = ProductSlice.actions
+export const {post} = ProductSlice.actions
 export default ProductSlice.reducer;
 
 

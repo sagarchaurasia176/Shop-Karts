@@ -1,27 +1,21 @@
-import React from 'react'
-import { createSlice } from '@reduxjs/toolkit'
+import React from "react";
+import { createSlice } from "@reduxjs/toolkit";
 
 // const intial statte here
-const initialState = {
-    cartVal : 0,
-
-}
 
 export const UserCartSlice = createSlice({
-    name:"Cart",
-    initialState,
-    reducers:{
-        addBtn : ()=>{
-            
-
-        },
-        removeBtn : ()=>{
-
-        }
-    }
-
-})
+  name: "Carts",
+  initialState:[],
+  reducers: {
+    addBtn: (state, action) => {
+      state.push(action.payload);
+    },
+    removeBtn: (state, action) => {
+      return state.filter((item) => item.id != action.payload);
+    },
+  },
+});
 
 // these are the main properties of redux
-export const{addBtn , removeBtn} = UserCartSlice.actions;
+export const { addBtn, removeBtn } = UserCartSlice.actions;
 export default UserCartSlice.reducer;

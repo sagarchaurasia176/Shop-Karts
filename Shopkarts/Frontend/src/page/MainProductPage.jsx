@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import Spinner from "./Spinner";
 import StatusCode from "@/lib/StatusCode";
 import CategoryNav from "@/Screens/CategoryNav";
-import ProductSlice from "@/Constant/Slice/ProductSlice";
 import { ProductApi } from "@/Constant/Slice/ProductSlice";
+import { post } from "@/Constant/Slice/ProductSlice";
+import { addBtn, removeBtn } from "@/Constant/Slice/UserCartSlice";
+import toast from "react-hot-toast";
 // main Product page apply here
 const MainProductPage = () => {
   const dispatch = useDispatch();
@@ -15,23 +16,35 @@ const MainProductPage = () => {
   useEffect(() => {
     dispatch(ProductApi());
   }, []);
-
   // check the status code
   if (Status === StatusCode.LOADING) return <Spinner />;
   // error
   if (Status === StatusCode.ERROR) return alert("error in the product page");
-
   // Main page
+
+  // Remove btn handler
+const RemoveBtnHandler = () =>{
+  dispatch(removeBtn());
+  toast.success("Item Removed from cart")
+}
+// add cart Btn Hander
+const AddCartBtnHandler = ()=>{
+  dispatch(addBtn())
+  toast.success("Item Added in Cart")
+}
+
+
   return (
     <div>
       <CategoryNav />
       {/* main product page apply here */}
       <div className=" w-full p-1 m-auto rounded-md md:w-2/3 ">
         <div className=" lg:grid p-2  gap-1  lg:grid-cols-3">
+
+
           {AddCart.map((details) => (
             <>
-              <div key={details.id}
-                className=" ">
+              <div key={details.id} className=" ">
                 <div
                   className=" cursor-pointer 
                   flex flex-col  items-center justify-between 
@@ -58,14 +71,29 @@ const MainProductPage = () => {
                         ${details.price}
                       </p>
                     </div>
-                  </div>
-                  {/* buttons */}
-                  <div className=",  flex flex-row gap-7">
+                  </div>{/* buttons */}
+                  <div className="flex flex-row   gap-7">
+                    {// here some is mthod which check that the given parm is
+
+                      //  dought part
+                      Array.isArray(AddCart) && AddCart.some((p) => p?.id === post?.id) ? (
+                        <>
+                          <button
+                            onClick={RemoveBtnHandler}
+                          className="  bg-slate-300 p-3 rounded-lg">
+                            RemoveCart
+                          </button>
+                        </>
+                      ) : (
+                        <button
+                        onClick={AddCartBtnHandler}
+                        className="  bg-slate-300 p-3 rounded-lg">
+                          AddCart
+                        </button>
+                      )
+                    }
                     <button className=" bg-orange-600 p-2 text-white rounded-lg">
-                      Add To Cart
-                    </button>
-                    <button className="  bg-slate-300 p-3 rounded-lg">
-                       Remove
+                      BuyNow
                     </button>
                   </div>
                 </div>

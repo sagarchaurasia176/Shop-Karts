@@ -20,21 +20,19 @@ const CartCatalog = () => {
               ) : (
                 <>
                   <div>
-                    <div className='  text-center  p-4 lg:flex  
-                    lg:justify-evenly lg:items-center h-screen 
-                    sm:blocks  mr-[6px]'>
-                      <h1 className=' lg:text-2xl  sm:text-2xl  font-extralight '>
-                        Cart is Empty<span className=' size-96'>😔</span>Add Something
+                    <div className='  text-center  p-4 h-screen mr-20 '>
+                      <h1 className=' lg:text-2xl text-center  sm:text-2xl  font-extralight '>
+                        Cart is Empty<span className='  text-3xl'>😔</span>Add Something
                       </h1>
                       <NavLink to="/">
-                        <div className=' lg:w-[200px] rounded-lg m-auto cursor-pointer 
+                        <div className=' flex justify-center items-center  w-44 rounded-lg m-auto cursor-pointer 
                         transition-all duration-100 hover:bg-slate-300
                         bg-green-400 outline p-3'>
 
-                          <button className=' '>Shop Now</button>
+                          <button className=' w-44'>Shop Now</button>
                         </div>
                       </NavLink>
-                    </div> 
+                    </div>
                   </div>
 
                 </>

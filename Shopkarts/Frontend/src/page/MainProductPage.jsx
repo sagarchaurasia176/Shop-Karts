@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 const MainProductPage = () => {
   const dispatch = useDispatch();
   const { post: AddCart, Status } = useSelector((state) => state.AddCart);
+  const { Carts } = useSelector((states) => states.Carts);
 
   // useEffect apply here
   useEffect(() => {
@@ -23,16 +24,15 @@ const MainProductPage = () => {
   // Main page
 
   // Remove btn handler
-const RemoveBtnHandler = () =>{
-  dispatch(removeBtn());
-  toast.success("Item Removed from cart")
-}
-// add cart Btn Hander
-const AddCartBtnHandler = ()=>{
-  dispatch(addBtn())
-  toast.success("Item Added in Cart")
-}
-
+  const RemoveBtnHandler = () => {
+    dispatch(removeBtn());
+    toast.success("Item Removed from cart");
+  };
+  // add cart Btn Hander
+  const AddCartBtnHandler = () => {
+    dispatch(addBtn());
+    toast.success("Item Added in Cart");
+  };
 
   return (
     <div>
@@ -40,8 +40,6 @@ const AddCartBtnHandler = ()=>{
       {/* main product page apply here */}
       <div className=" w-full p-1 m-auto rounded-md md:w-2/3 ">
         <div className=" lg:grid p-2  gap-1  lg:grid-cols-3">
-
-
           {AddCart.map((details) => (
             <>
               <div key={details.id} className=" ">
@@ -71,23 +69,25 @@ const AddCartBtnHandler = ()=>{
                         ${details.price}
                       </p>
                     </div>
-                  </div>{/* buttons */}
+                  </div>
+                  {/* buttons */}
                   <div className="flex flex-row   gap-7">
-                    {// here some is mthod which check that the given parm is
-
-                      //  dought part
-                      Array.isArray(AddCart) && AddCart.some((p) => p?.id === post?.id) ? (
+                    {
+                      Array.isArray(Carts) &&
+                      Carts.some((p) => p?.id === Carts?.id) ? (
                         <>
                           <button
                             onClick={RemoveBtnHandler}
-                          className="  bg-slate-300 p-3 rounded-lg">
+                            className="  bg-slate-300 p-3 rounded-lg"
+                          >
                             RemoveCart
                           </button>
                         </>
                       ) : (
                         <button
-                        onClick={AddCartBtnHandler}
-                        className="  bg-slate-300 p-3 rounded-lg">
+                          onClick={AddCartBtnHandler}
+                          className="  bg-slate-300 p-3 rounded-lg"
+                        >
                           AddCart
                         </button>
                       )

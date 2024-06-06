@@ -25,3 +25,8 @@ To run tests, run the following command
 
 
 ## Screenshots
+![Screenshot 2024-06-04 211316](https://github.com/sagarchaurasia176/Shop-Karts/assets/101509099/6c0fec55-cb32-42fa-b86a-66853d1227d3)
+
+
+
+

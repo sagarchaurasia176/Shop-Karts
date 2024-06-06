@@ -7,13 +7,14 @@ import { ProductApi } from "@/Constant/Slice/ProductSlice";
 import { post } from "@/Constant/Slice/ProductSlice";
 import { addBtn, removeBtn } from "@/Constant/Slice/UserCartSlice";
 import toast from "react-hot-toast";
+
 // main Product page apply here
-const MainProductPage = () => {
+const MainProductPage = ({items}) => {
   const dispatch = useDispatch();
   const { post: AddCart, Status } = useSelector((state) => state.AddCart);
-  const { Carts } = useSelector((states) => states.Carts);
 
   // useEffect apply here
+
   useEffect(() => {
     dispatch(ProductApi());
   }, []);
@@ -70,36 +71,30 @@ const MainProductPage = () => {
                       </p>
                     </div>
                   </div>
+
                   {/* buttons */}
                   <div className="flex flex-row   gap-7">
-                    {
-                      Array.isArray(Carts) &&
-                      Carts.some((p) => p?.id === Carts?.id) ? (
-                        <>
-                          <button
-                            onClick={RemoveBtnHandler}
-                            className="  bg-slate-300 p-3 rounded-lg"
-                          >
-                            RemoveCart
-                          </button>
-                        </>
-                      ) : (
-                        <button
-                          onClick={AddCartBtnHandler}
-                          className="  bg-slate-300 p-3 rounded-lg"
-                        >
-                          AddCart
-                        </button>
-                      )
-                    }
-                    <button className=" bg-orange-600 p-2 text-white rounded-lg">
-                      BuyNow
-                    </button>
+                 {  
+                    items.some((p) => p?.id === post.id) ? 
+                    ( 
+                      <button>Remove Item</button>
+
+                    ) 
+                    
+                    : (
+                      <button>Add Item</button>
+                    )
+
+
+
+                   }
                   </div>
                 </div>
               </div>
             </>
           ))}
+
+
         </div>
       </div>
     </div>

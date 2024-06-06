@@ -27,9 +27,10 @@ const CartCatalog = () => {
               {Carts && Carts.length > 0 ? (
                 <>
                   <div>
-                    {Carts && Carts.map((items) => {
-                      return <UserCarts key={items.id} items={items} />;
-                    })}
+                    {Carts &&
+                      Carts.map((items) => {
+                        return <UserCarts key={items.id} items={items} />;
+                      })}
                   </div>
                 </>
               ) : (

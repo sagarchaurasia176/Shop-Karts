@@ -6,7 +6,7 @@ import UserCarts from "./UserCarts";
 
 const CartCatalog = () => {
   const { post: AddCart, Status } = useSelector((Status) => Status.AddCart);
-  const Carts = useSelector((states) => states.Carts);
+  const Carts = useSelector((states) => states);
 
   if (Status === StatusCode.LOADING) return <Spinner />;
   if (Status === StatusCode.ERROR) {
@@ -14,7 +14,7 @@ const CartCatalog = () => {
       <h2>
         <b>Error in catalog</b>
       </h2>
-    );
+    );  
   }
 
   return (

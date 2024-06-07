@@ -9,11 +9,10 @@ import { addBtn, removeBtn } from "@/Constant/Slice/UserCartSlice";
 import toast from "react-hot-toast";
 
 // main Product page apply here
-const MainProductPage = ({items}) => {
+const MainProductPage = ({ items }) => {
   const dispatch = useDispatch();
   const { post: AddCart, Status } = useSelector((state) => state.AddCart);
-
-  // useEffect apply here
+  const {  ProductSlice } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(ProductApi());
@@ -26,12 +25,12 @@ const MainProductPage = ({items}) => {
 
   // Remove btn handler
   const RemoveBtnHandler = () => {
-    dispatch(removeBtn());
+    dispatch(removeBtn(items.id));
     toast.success("Item Removed from cart");
   };
   // add cart Btn Hander
   const AddCartBtnHandler = () => {
-    dispatch(addBtn());
+    dispatch(addBtn(items));
     toast.success("Item Added in Cart");
   };
 
@@ -73,28 +72,27 @@ const MainProductPage = ({items}) => {
                   </div>
 
                   {/* buttons */}
-                  <div className="flex flex-row   gap-7">
-                 {  
-                    items.some((p) => p?.id === post.id) ? 
-                    ( 
-                      <button>Remove Item</button>
+                  <div className="flex flex-row gap-7">
+                    {Array.isArray(items) &&
+                     ProductSlice.some((p) => p?.id === post.id) ? (
+                      <button onClick={RemoveBtnHandler}>Remove Item</button>
+                    ) : (
+                      <button
+                        className=" bg-orange-300 rounded-lg p-3"
+                        onClick={AddCartBtnHandler}
+                      >
+                        Add Item
+                      </button>
+                    )}
 
-                    ) 
-                    
-                    : (
-                      <button>Add Item</button>
-                    )
-
-
-
-                   }
+                    <button className=" bg-slate-400 p-2 rounded-lg">
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </div>
             </>
           ))}
-
-
         </div>
       </div>
     </div>

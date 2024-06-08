@@ -2,9 +2,10 @@ import React from "react";
 import { createSlice } from "@reduxjs/toolkit";
 
 // const intial statte here
-export const UserCartSlice = createSlice({
+export const CatalogSlice = createSlice({
   name: "Carts",
-  initialState:[],
+  initialState: [],
+
   reducers: {
     addBtn: (state, action) => {
       state.push(action.payload);
@@ -15,5 +16,5 @@ export const UserCartSlice = createSlice({
   },
 });
 // these are the main properties of redux
-export const { addBtn, removeBtn } = UserCartSlice.actions;
-export default UserCartSlice.reducer;
+export const { addBtn, removeBtn } = CatalogSlice.actions;
+export default CatalogSlice.reducer;

@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 // redux toolki apply here
 import { Provider } from "react-redux";
 // react router
-import { MainStore } from "./Constant/Store/MainStore.jsx";
+import { MainStore } from "./Store/Slice/Store/MainStore.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
       <Provider store={MainStore}>

@@ -3,16 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import Spinner from "./Spinner";
 import StatusCode from "@/lib/StatusCode";
 import CategoryNav from "@/Screens/CategoryNav";
-import { ProductApi } from "@/Constant/Slice/ProductSlice";
-import { post } from "@/Constant/Slice/ProductSlice";
-import { addBtn, removeBtn } from "@/Constant/Slice/UserCartSlice";
+import { ProductApi } from "@/Store/Slice/ProductSlice";
+import { addBtn, removeBtn } from "@/Store/Slice/CatalogSlice";
 import toast from "react-hot-toast";
 
 // main Product page apply here
 const MainProductPage = ({ items }) => {
   const dispatch = useDispatch();
   const { post: AddCart, Status } = useSelector((state) => state.AddCart);
-  const {  ProductSlice } = useSelector((state) => state);
+  const { Carts } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(ProductApi());
@@ -74,7 +73,7 @@ const MainProductPage = ({ items }) => {
                   {/* buttons */}
                   <div className="flex flex-row gap-7">
                     {Array.isArray(items) &&
-                     ProductSlice.some((p) => p?.id === post.id) ? (
+                    Carts.some((p) => p?.id === post.id) ? (
                       <button onClick={RemoveBtnHandler}>Remove Item</button>
                     ) : (
                       <button

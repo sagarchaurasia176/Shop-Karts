@@ -5,11 +5,14 @@ const UserCarts = ({ items }) => {
     <div>
       <div key={items.id} className=" ">
         <div
-          className=" cursor-pointer   sm:w-80  
+          className=" cursor-pointer    sm:w-80  
                   flex flex-col  items-center  justify-evenly
                    transition duration-300 ease-in gap-3 p-4 mt-10 ml-1 
                   rounded-lg  outline"
         >
+            <div>
+              {items.title}
+            </div>
           <div className="h-[130px]">
             <img
               className=" h-full w-full  rounded-t-lg"
@@ -19,7 +22,7 @@ const UserCarts = ({ items }) => {
           </div>
           <div>
             <p className="w-40 text-gray-400 font-normal text-[10px] text-left">
-              {items.description.split(" ").slice(0, 10).join(" ") + "..."}
+              {/* {items.description.split(" ").slice(0, 10).join(" ") + "..."} */}
             </p>
           </div>
           {/* price  */}

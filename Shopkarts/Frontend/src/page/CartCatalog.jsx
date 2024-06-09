@@ -1,21 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import StatusCode from "@/lib/StatusCode";
-import Spinner from "./Spinner";
+// import StatusCode from "@/lib/StatusCode";
+// import Spinner from "./Spinner";
 import UserCarts from "./UserCarts";
 
 const CartCatalog = () => {
-  const { post: AddCart, Status } = useSelector((Status) => Status.AddCart);
-
-  const Carts = useSelector((states) => states);
-  if (Status === StatusCode.LOADING) return <Spinner />;
-  if (Status === StatusCode.ERROR) {
-    return (
-      <h2>
-        <b>Error in catalog</b>
-      </h2>
-    );
-  }
+  const { cartPost: Carts } = useSelector((state) => state.Carts);
 
   return (
     <>

@@ -6,27 +6,30 @@ import CategoryNav from "@/Screens/CategoryNav";
 import { ProductApi } from "@/Store/Slice/ProductSlice";
 import { addBtn, removeBtn } from "@/Store/Slice/CatalogSlice";
 import toast from "react-hot-toast";
-
 // main Product page apply here
+
 const MainProductPage = ({ items }) => {
   const dispatch = useDispatch();
-  const { post: AddCart, Status } = useSelector((state) => state.AddCart);
-  const { Carts } = useSelector((state) => state);
-
-  useEffect(() => {
+  
+    useEffect(() => {
     dispatch(ProductApi());
   }, []);
-  // check the status code
+
+  const { post: AddCart, Status } = useSelector((state) => state.AddCart);
+  const { Carts } = useSelector((state) => state);
+  // check the satus code
   if (Status === StatusCode.LOADING) return <Spinner />;
   // error
   if (Status === StatusCode.ERROR) return alert("error in the product page");
-  // Main page
 
+  // Main page
   // Remove btn handler
   const RemoveBtnHandler = () => {
     dispatch(removeBtn(items.id));
     toast.success("Item Removed from cart");
   };
+
+
   // add cart Btn Hander
   const AddCartBtnHandler = () => {
     dispatch(addBtn(items));
@@ -43,6 +46,7 @@ const MainProductPage = ({ items }) => {
             <>
               <div key={details.id} className=" ">
                 <div
+                  key={details.id}
                   className=" cursor-pointer 
                   flex flex-col  items-center justify-between 
                    transition duration-300 ease-in gap-3 p-4 mt-10 ml-5 
@@ -83,11 +87,17 @@ const MainProductPage = ({ items }) => {
                         Add Item
                       </button>
                     )}
-
+                    {/* buy now btn here */}
                     <button className=" bg-slate-400 p-2 rounded-lg">
                       Buy Now
                     </button>
                   </div>
+
+
+
+
+
+
                 </div>
               </div>
             </>

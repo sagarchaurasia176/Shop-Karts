@@ -6,7 +6,9 @@ import StatusCode from "@/lib/StatusCode";
 const initialState = {
   post: [],
   Status: StatusCode.IDEAL,
-}; // loading parts apply here
+};
+
+// loading parts apply here
 export const ProductSlice = createSlice({
   name: "AddCart",
   initialState,
